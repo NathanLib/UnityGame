@@ -26,11 +26,13 @@ public class generateObject : MonoBehaviour
     {
         if (piecesList.Count < 3)
         {
-            float posZLastObject = piecesList[piecesList.Count - 1].transform.position.z; ;
+            // faire fonction get max z
+            float posZLastObject = piecesList[piecesList.Count - 1].transform.position.z;
 
             GameObject piece = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             piece.transform.position = new Vector3(0, 0.75f, posZLastObject + 20f);
             piece.gameObject.tag = "Pieces";
+            piece.GetComponent<SphereCollider>().isTrigger = true;
 
             piecesList.Add(piece);
         }

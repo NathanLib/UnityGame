@@ -27,6 +27,8 @@ public class collisionManagement : MonoBehaviour
         
     }
 
+
+    // voir fonction onTrigger 
     void OnCollisionEnter(Collision collision)
     {
         string name = collision.transform.name;
