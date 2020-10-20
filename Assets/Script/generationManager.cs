@@ -5,57 +5,79 @@ using UnityEngine;
 public class generationManager : MonoBehaviour
 {
 
-    public Transform decorsToDuplicate;
-    int nbGeneratedDecors = 0;
-    float decorsSize = 50;
+    public Transform scenneryToDuplicate;
+    int nbGeneratedScennery = 0;
+    float scennerySize = 50;
 
     public Transform sphereModel, cylinderModel, capsuleModel, ennemyModel;
+    private Transform[] piecesModel;
 
-    // Start is called before the first frame update
+    // Start is called before the first frame update 
     void Start()
     {
-        RandomPiecesGeneration(sphereModel, 3, 5);
-        RandomPiecesGeneration(cylinderModel, 2, 3);
-        RandomPiecesGeneration(capsuleModel, 1, 2);
+        piecesModel = new Transform[5];
+        piecesGeneration();
+
+        //RandomPiecesGeneration(sphereModel, 3, 5);
+        //RandomPiecesGeneration(cylinderModel, 2, 3);
+        //RandomPiecesGeneration(capsuleModel, 1, 2);
+
+        print("taille " + piecesModel.Length);
+    }
+
+    private void piecesGeneration()
+    {
+        float posX = Random.Range(-8, 8);
+
+        float posZrelatif = Random.Range(-scennerySize / 2, scennerySize / 2);
+        float posZ = nbGeneratedScennery * scennerySize + posZrelatif;
+
+        for (int i = 0; i < piecesModel.Length; i++)
+        {
+            piecesModel[i] = RandomPiecesGeneration(sphereModel, posX, posZ + (i * 10));
+            //piecesModel[i].position.z = posZ * i;
+            print($"Piece : {piecesModel[i]}");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.z > 10 + nbGeneratedDecors*decorsSize)
+        if (transform.position.z > 10 + nbGeneratedScennery*scennerySize)
         {
-            nbGeneratedDecors++;
-            print($"Nouveau décors généré, no {nbGeneratedDecors}");
+            nbGeneratedScennery++;
+            print($"Nouveau décors généré, no {nbGeneratedScennery}");
 
-            Transform createdDecors = Instantiate(decorsToDuplicate);
+            Transform createdScennery = Instantiate(scenneryToDuplicate);
 
-            Vector3 tempPosition = createdDecors.position;
-            tempPosition.z += nbGeneratedDecors * decorsSize;
-            createdDecors.position = tempPosition;
+            Vector3 tempPosition = createdScennery.position;
+            tempPosition.z += nbGeneratedScennery * scennerySize;
+            createdScennery.position = tempPosition;
 
-            RandomPiecesGeneration(sphereModel, 3, 5);
-            RandomPiecesGeneration(cylinderModel, 2, 3);
-            RandomPiecesGeneration(capsuleModel, 1, 2);
+            piecesGeneration();
+
+            //RandomPiecesGeneration(sphereModel, 3, 5);
+            //RandomPiecesGeneration(cylinderModel, 2, 3);
+            //RandomPiecesGeneration(capsuleModel, 1, 2);
 
             RandomEnemiesGeneration(ennemyModel);
 
         }
     }
 
-    private void RandomPiecesGeneration(Transform model, int nbMin, int nbMax)
+    private Transform RandomPiecesGeneration(Transform model, float posX, float posZ)
     {
-        int nbObject = Random.Range(nbMin, nbMax);
+        //int nbMin, int nbMax
+        //int nbObject = Random.Range(nbMin, nbMax);
 
-        for (int i = 0; i < nbObject; i++)
-        {
-            Transform newObject = Instantiate(model);
+        Transform newObject = Instantiate(model);
 
-            float posX = Random.Range(-8, 8); //random pos X
-            float posZrelatif = Random.Range(-decorsSize / 2, decorsSize / 2);
-            float posZ = nbGeneratedDecors * decorsSize + posZrelatif;
+        float posZrelatif = Random.Range(-scennerySize / 2, scennerySize / 2);
+        //float posZ = nbGeneratedScennery * scennerySize + posZrelatif;
 
-            newObject.position = new Vector3(posX, newObject.position.y, posZ);
-        }
+        newObject.position = new Vector3(posX, newObject.position.y, posZ);
+
+        return newObject;
     }
 
     private void RandomEnemiesGeneration(Transform model)
@@ -65,8 +87,8 @@ public class generationManager : MonoBehaviour
             Transform newObject = Instantiate(model);
 
             float posX = Random.Range(-8, 8); //random pos X
-            float posZrelatif = Random.Range(0, decorsSize);
-            float posZ = nbGeneratedDecors * decorsSize + posZrelatif;
+            float posZrelatif = Random.Range(0, scennerySize);
+            float posZ = nbGeneratedScennery * scennerySize + posZrelatif;
 
             newObject.position = new Vector3(posX, 2, posZ); //newObject.position.y
             newObject.transform.Translate(Time.deltaTime * 20 * Vector3.forward);

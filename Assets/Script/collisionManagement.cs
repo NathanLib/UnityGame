@@ -56,9 +56,7 @@ public class collisionManagement : MonoBehaviour
             //Gestion des points
             this.score += piecesPoints;
 
-            //print("Before : " + this.myGeneratedObject.piecesList.Count);
-            //this.myGeneratedObject.piecesList.Remove(collider.gameObject);
-
+            //Suppression des pièces
             Destroy(collider.gameObject);
             //collider.gameObject.SetActive(false);
         }
@@ -71,47 +69,4 @@ public class collisionManagement : MonoBehaviour
     {
         
     }
-
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    string name = collision.transform.name;
-    //    string tag = collision.transform.tag;
-
-    //    if (tag == obstacleTag)
-    //    {
-    //        print("Colonel! Collision detected with an obstacle! What do we do?");
-
-    //        //Gestion des points
-    //        points--;
-    //        print("Nombre de points : " + points);
-    //    }
-    //    else if (tag == piecesTag)
-    //    {
-    //        print("Colonel! We find something new to collect!");
-
-    //        if (name == sphereName)
-    //        {
-    //            print("Arghhh, it's a sphere. Always them!");
-    //        }
-    //        else if (name == capsuleName)
-    //        {
-    //            print("Ohhh, it's a capsule! Do we keep it?");
-    //        }
-    //        else if (name == cylinderName)
-    //        {
-    //            print("Wow, it's a cylinder! This object is so rare!");
-    //        }
-
-    //        monObjetGenere.piecesList.Remove(collision.gameObject);
-    //        print("Nombre d'objet dans la liste : " + monObjetGenere.piecesList.Count);
-
-    //        Destroy(collision.gameObject);
-    //        //collision.gameObject.SetActive(false);
-
-    //        //Gestion des points
-    //        points++;
-    //        print("Nombre de points : " + points);
-    //    }
-    //}
-
 }
