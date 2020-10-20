@@ -9,6 +9,7 @@ TagManager:
   - Cylinder
   - Pieces
   - Ennemy
+  - objectCreationManager
   layers:
   - Default
   - TransparentFX
