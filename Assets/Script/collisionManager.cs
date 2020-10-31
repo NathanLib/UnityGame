@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class collisionManagement : MonoBehaviour
+public class collisionManager : MonoBehaviour
 {
-    //public generateObject myGeneratedObject;
+    public scoreManager scoreManager;
+
     const string obstacleTag = "Ennemy";
     const string piecesTag = "Pieces";
 
@@ -15,12 +16,12 @@ public class collisionManagement : MonoBehaviour
     const int obstaclePoints = 5;
     const int piecesPoints = 10;
 
-    private int score = 0;
+    //private int score = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        //this.myGeneratedObject = GetComponent<>;
+        //this.scoreManager = GetComponent<>;
     }
 
     // Update is called once per frame
@@ -41,8 +42,8 @@ public class collisionManagement : MonoBehaviour
         {
             print("Colonel! Collision detected with an obstacle! What do we do?");
 
-            //Gestion des points
-            this.score -= obstaclePoints;
+            //Points management
+            scoreManager.Score -= obstaclePoints;
         }
         else if (tag == piecesTag)
         {
@@ -53,20 +54,18 @@ public class collisionManagement : MonoBehaviour
                 case cylinderName: print("Wow, it's a cylinder! This object is so rare!"); break;
             }
 
-            //Gestion des points
-            this.score += piecesPoints;
+            //Points management
+            scoreManager.Score += piecesPoints;
 
             //Suppression des pièces
             Destroy(collider.gameObject);
             //collider.gameObject.SetActive(false);
         }
-
-        print("Score : " + this.score);
     }
 
     //When the character exits the collision
     private void OnTriggerExit(Collider collider)
     {
-        
+
     }
 }
