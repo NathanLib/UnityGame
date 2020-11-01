@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class move : MonoBehaviour
+public class MotionManager : MonoBehaviour
 {
+    const float force = 15;
+    const float borne = 14.5f;
+
     public float speed;
-    public float borne;
-    public float force;
 
     // Start is called before the first frame update
     void Start()
@@ -19,19 +20,15 @@ public class move : MonoBehaviour
     {
         transform.Translate(0, 0, speed);
 
-        if (Input.GetKey(KeyCode.LeftArrow)) {
-            if (transform.position.x > -borne)
-            {
-                transform.Translate(-speed, 0, 0);
-            }
+        if (Input.GetKey(KeyCode.LeftArrow) && (transform.position.x > -borne)) {
+            transform.Translate(-speed, 0, 0);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+
+        if (Input.GetKey(KeyCode.RightArrow) && (transform.position.x < borne))
         {
-            if (transform.position.x < borne)
-            {
-                transform.Translate(speed, 0, 0);
-            }
+            transform.Translate(speed, 0, 0);
         }
+
 
         if (Input.GetKey(KeyCode.Space))
         {

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class collisionManager : MonoBehaviour
+public class CollisionManager : MonoBehaviour
 {
-    public scoreManager scoreManager;
+    private ScoreManager scoreManager;
+    public GameObject ScoreManagerObject;
 
     const string obstacleTag = "Ennemy";
     const string piecesTag = "Pieces";
@@ -21,7 +22,7 @@ public class collisionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //this.scoreManager = GetComponent<>;
+        this.scoreManager = (ScoreManager)ScoreManagerObject.GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
