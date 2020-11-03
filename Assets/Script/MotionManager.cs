@@ -28,7 +28,6 @@ public class MotionManager : MonoBehaviour
         transform.Translate(0, 0, speed);
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && (transform.position.x > -borne)) {
-            //  transform.Translate(-speed, 0, 0);
             if (lineNumber != 0) lineNumber--;
          
        
@@ -36,7 +35,6 @@ public class MotionManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.RightArrow) && (transform.position.x < borne))
         {
-            //transform.Translate(speed, 0, 0);
             if (lineNumber != 4) lineNumber++;
         }
 
