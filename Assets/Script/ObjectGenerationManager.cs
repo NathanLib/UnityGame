@@ -24,8 +24,6 @@ public class ObjectGenerationManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //transform.Translate(0, 0, -0.15f);
-
         //ennemyModel.position = Vector3.MoveTowards(ennemyModel.position, ennemyModel.position, (1 * Time.deltaTime));
         if (tempGeneratedScenes == sceneGenerationManager.generatedScenesNumber - 1)
         {
@@ -43,7 +41,7 @@ public class ObjectGenerationManager : MonoBehaviour
         {
             Transform newObject = Instantiate(model);
             float posX = RandomListPosition();
-            float posZrelatif = Random.Range(0, sceneGenerationManager.sceneSize);
+            float posZrelatif = Random.Range(-sceneGenerationManager.sceneSize/2, sceneGenerationManager.sceneSize/2);
             float posZ = sceneGenerationManager.generatedScenesNumber * sceneGenerationManager.sceneSize + posZrelatif;
 
             newObject.position = new Vector3(posX, 2, posZ);

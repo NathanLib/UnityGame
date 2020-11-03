@@ -5,7 +5,6 @@ using UnityEngine;
 public class CollisionManager : MonoBehaviour
 {
     private ScoreManager scoreManager;
-    public GameObject ScoreManagerObject;
 
     const string obstacleTag = "Ennemy";
     const string piecesTag = "Pieces";
@@ -22,9 +21,10 @@ public class CollisionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.scoreManager = (ScoreManager)ScoreManagerObject.GetComponent<ScoreManager>();
-    }
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
 
+    }
+    
     // Update is called once per frame
     void Update()
     {

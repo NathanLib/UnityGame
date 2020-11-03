@@ -11,7 +11,7 @@ public class generateObject : MonoBehaviour
     void Start() { }
 
     void Update() {
-        //transform.Translate(0, 0, -0.15f);
+        transform.Translate(0, 0, -0.15f);
     }
     //    // Start is called before the first frame update
     //    void Start()

@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a22dd0c2336f4967a6ff71aa7f17e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vitesse: 10
   speed: 0.1
 --- !u!54 &26879425
 Rigidbody:
@@ -260,7 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c870c55ce6e9e4f89ac7eab7db00b5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ScoreManagerObject: {fileID: 65551375}
 --- !u!114 &26879431
 MonoBehaviour:
   m_ObjectHideFlags: 0
