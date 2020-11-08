@@ -136,9 +136,8 @@ GameObject:
   - component: {fileID: 26879425}
   - component: {fileID: 26879424}
   - component: {fileID: 26879430}
-  - component: {fileID: 26879431}
   m_Layer: 0
-  m_Name: Personnage
+  m_Name: Character
   m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,19 +260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c870c55ce6e9e4f89ac7eab7db00b5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &26879431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 26879423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a20e39fa158294f689da02bffe305117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scenneryToDuplicate: {fileID: 1516004300}
 --- !u!1 &30499020
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &30499021
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -489,7 +475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b4f2de0edba45d087261f92e327a4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreDisplay: {fileID: 58178414}
 --- !u!1 &159255478
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +493,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &159255479
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -789,7 +774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &416015067
 Transform:
   m_ObjectHideFlags: 0
@@ -993,7 +978,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &515381131
 Transform:
   m_ObjectHideFlags: 0
@@ -1355,7 +1340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &746534259
 Transform:
   m_ObjectHideFlags: 0
@@ -1466,7 +1451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &864106332
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1945,7 +1930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1373182510
 Transform:
   m_ObjectHideFlags: 0
@@ -2056,7 +2041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1381555101
 Transform:
   m_ObjectHideFlags: 0
@@ -2498,7 +2483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1617085154
 Transform:
   m_ObjectHideFlags: 0
@@ -2600,8 +2585,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1809433538}
   - component: {fileID: 1809433537}
+  - component: {fileID: 1809433539}
   m_Layer: 0
-  m_Name: ObjectGenerationManager
+  m_Name: GenerationManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2619,9 +2605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b620d96961b5446b399b1c36b1608f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneGenerationManager: {fileID: 26879431}
-  sphereModel: {fileID: 1551876874}
-  ennemyModel: {fileID: 2052294466}
 --- !u!4 &1809433538
 Transform:
   m_ObjectHideFlags: 0
@@ -2636,6 +2619,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1809433539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809433536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20e39fa158294f689da02bffe305117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1879170322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,7 +2743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1999888912
 Transform:
   m_ObjectHideFlags: 0

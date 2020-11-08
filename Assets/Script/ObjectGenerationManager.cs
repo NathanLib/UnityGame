@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class ObjectGenerationManager : MonoBehaviour
 {
-    public SceneGenerationManager sceneGenerationManager;
+    private SceneGenerationManager sceneGenerationManager;
+    private MotionManager motionManager;
 
     private static int[] linesPositions = {-6, -3, 0, 3, 6};
     private int tempGeneratedScenes = 0;
 
-    public Transform sphereModel, ennemyModel;
+    private Transform sphereModel, ennemyModel;
     private Transform[] piecesModel;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        sceneGenerationManager = GameObject.Find("GenerationManager").GetComponent<SceneGenerationManager>();
+        sphereModel = GameObject.Find("Piece").GetComponent<Transform>();
+        ennemyModel = GameObject.Find("Ennemy").GetComponent<Transform>();
+
         piecesModel = new Transform[7];
         RandomPiecesGeneration(sphereModel);
 

@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class SceneGenerationManager : MonoBehaviour
 {
-    public Transform scenneryToDuplicate;
+    private Transform scenneryToDuplicate;
+    private Transform character;
+
     public int generatedScenesNumber { get; set; } = 0;
     public float sceneSize { get; set; } = 150;
 
     // Start is called before the first frame update 
     void Start()
     {
-
+        character = GameObject.Find("Character").GetComponent<Transform>();
+        scenneryToDuplicate = GameObject.Find("Scene").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.z > 1 + generatedScenesNumber*sceneSize)
+        if (character.transform.position.z > 1 + generatedScenesNumber*sceneSize)
         {
             generatedScenesNumber++;
             print($"Nouveau décors généré, no {generatedScenesNumber}");

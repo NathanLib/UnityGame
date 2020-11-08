@@ -16,8 +16,6 @@ public class CollisionManager : MonoBehaviour
     const int obstaclePoints = 5;
     const int piecesPoints = 10;
 
-    //private int score = 0;
-
     // Start is called before the first frame update
     void Start()
     {

@@ -10,7 +10,8 @@ public class MotionManager : MonoBehaviour
     public float vitesse = 0.1f; 
     public float speed;
 
-    private static float[] linesPositions = { -6, -3, 0, 3, 6 };
+    public static float[] LinesPositions { get; } = { -6, -3, 0, 3, 6 };
+
     private int oldLine = 2;
     private int lineNumber = 2;
 
@@ -29,8 +30,6 @@ public class MotionManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && (transform.position.x > -borne)) {
             if (lineNumber != 0) lineNumber--;
-         
-       
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow) && (transform.position.x < borne))
@@ -47,8 +46,7 @@ public class MotionManager : MonoBehaviour
         if (oldLine != lineNumber)
         {
             transform.Translate(Mathf.Sign(lineNumber - oldLine) * speed, 0, 0);
-            print(transform.position.x - linesPositions[lineNumber]) ;
-            if (Mathf.Abs(transform.position.x - linesPositions[lineNumber]) < 0.25f)
+            if (Mathf.Abs(transform.position.x - LinesPositions[lineNumber]) < 0.1f)
             {
                 oldLine = lineNumber;
             }

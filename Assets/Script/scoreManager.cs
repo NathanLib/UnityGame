@@ -7,12 +7,12 @@ public class ScoreManager : MonoBehaviour
 {
     public int Score { get; set; }
 
-    public Text scoreDisplay;
+    private Text scoreDisplay;
 
     // Start is called before the first frame update
     void Start()
     {
-
+       scoreDisplay = GameObject.Find("ScoreDisplay").GetComponent<Text>();
     }
 
     // Update is called once per frame
